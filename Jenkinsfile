@@ -1,9 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('test') {
             steps {
-                sh 'echo build ok'
+                git branch: 'feature/jenkins-ci', credentialsId: 'GitHub', url: 'https://github.com/IIS-ZPI/ZPI_2019_Dzienni_IO4_SpiceTech'
+                githubNotify context: 'jenkins', description: 'Jenkins multibranch pipeline',  status: 'PENDING'
+                sh 'echo No tests at the moment, exiting.'
+                githubNotify context: 'jenkins', description: 'Jenkins multibranch pipeline',  status: 'SUCCESS'
             }
         }
     }
