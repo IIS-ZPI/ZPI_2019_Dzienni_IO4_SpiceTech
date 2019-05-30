@@ -1,3 +1,9 @@
-node {
-    sh 'echo hello world'
+pipeline {
+    stages {
+        stage('build') {
+            steps {
+                sh 'echo build ok'
+            }
+        }
+    }
 }
