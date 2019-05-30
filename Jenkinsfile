@@ -4,10 +4,10 @@ pipeline {
         stage('test') {
             steps {
                 git branch: 'feature/jenkins-ci', credentialsId: 'GitHub', url: 'https://github.com/IIS-ZPI/ZPI_2019_Dzienni_IO4_SpiceTech'
-                githubNotify context: 'jenkins', description: 'Jenkins multibranch pipeline',  status: 'PENDING'
+                githubNotify context: 'spajstech-jenkins', description: 'Jenkins multibranch pipeline running at jenkins.spajstech.ovh',  status: 'PENDING'
                 sh 'pip install -r requirements'
                 sh 'python test/mainTest.py'
-                githubNotify context: 'jenkins', description: 'Jenkins multibranch pipeline',  status: 'SUCCESS'
+                githubNotify context: 'spajstech-jenkins', description: 'Jenkins multibranch pipeline running at jenkins.spajstech.ovh',  status: 'SUCCESS'
             }
         }
     }
