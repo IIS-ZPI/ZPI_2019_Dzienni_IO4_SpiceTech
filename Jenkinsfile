@@ -7,7 +7,7 @@ pipeline {
                 sh 'python test/mainTest.py'
 		sh 'echo Checking coverage...'
 		sh 'pip3 install coverage'
-		sh 'coverage run test/maintest.py'
+		sh 'coverage run test/mainTest.py'
 		sh 'coverage report -m'
             }
         }
