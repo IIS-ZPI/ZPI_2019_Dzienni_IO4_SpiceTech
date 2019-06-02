@@ -1,4 +1,4 @@
-def get_operation():
+def read_operation():
     op = None
     while op not in ["1", "2", "3", "4", "5", "6", "7"]:
         op = str(input("please select desired operation\n\
