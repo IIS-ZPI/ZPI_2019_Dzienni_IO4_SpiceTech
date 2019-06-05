@@ -3,6 +3,10 @@ from dateutil.relativedelta import relativedelta
 
 
 def read_period():
+    """
+    Reads input from the user.
+    Returns relative date back if the input is correct, else it returns None
+    """
     period = 0
     prd = str(input("please select desired period\n\
     1 - 1 week\n\
