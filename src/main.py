@@ -35,7 +35,7 @@ if operation in ["1", "2", "3", "4", "5"]:
         if operation == "2":
             answer, count = stats.mode(values)
             print("The mode for " + currency_code + " in the period from " + starting_date + " to " + ending_date + " is: " + str(answer[0]))
-            print("TEST: count == " + str(count))
+            # print("TEST: count == " + str(count))
         if operation == "3":
             answer = numpy.std(values)
             print("The standard deviation for " + currency_code + " in the period from " + starting_date + " to " + ending_date + " is: " + str(answer))
