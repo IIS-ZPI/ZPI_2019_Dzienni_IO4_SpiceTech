@@ -6,13 +6,16 @@ import requests
 
 def get_period_data(period, table_code, currency_code):
     """
-    Takes: relative date back, table code, and table code as inputs.
+    Takes: relative date back (datetime), table code (string), and table code (string) as inputs.
     Creates an array of mid rates of specified currency for the period.
     Returns an array with values oldest at the beggining and the most recent at the end.
     """
     period_data = []
     today = datetime.today().date()
-    iterations = math.ceil((today - period).days/93)
+    if period == today:
+        iterations = 1
+    else:
+        iterations = math.ceil((today - period).days/93)
     for i in range(0, iterations):
         if i != iterations-1:
             temp_period = period + relativedelta(days=93)
