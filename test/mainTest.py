@@ -1,14 +1,21 @@
 import unittest
 import sys
+from dateutil.relativedelta import relativedelta
 import datetime
-sys.path.append("./src/")
+sys.path.append("../src/")
 
+import read_period
 import get_period_data
 import get_codes
 import read_currency
 import read_operation
 
 class MainTest(unittest.TestCase):
+
+    def test_read_period(self):
+        read_period.input = lambda _: "10"
+        self.assertEqual(read_period.read_period(), None)
+        read_period.input = lambda _: "1"
 
     def test_get_period_data(self):
         period = datetime.datetime.now().date()
@@ -42,5 +49,7 @@ class MainTest(unittest.TestCase):
             read_operation.input = lambda _: i
             self.assertEqual(read_operation.read_operation(), r)
 
+        rel = relativedelta(days=7)
+        self.assertEqual(read_period.read_period(), datetime.datetime.now().date() - rel)
 if __name__ == '__main__':
     unittest.main()
