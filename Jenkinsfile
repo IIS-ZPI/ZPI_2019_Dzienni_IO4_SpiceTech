@@ -4,7 +4,7 @@ pipeline {
         stage('test') {
             steps {
                 sh 'pip3 install -r requirements.txt'
-                sh 'python3 test/mainTest.py'
+                sh 'cd test; python3 mainTest.py'
                 sh 'echo Checking coverage...'
                 sh 'pip3 install coverage'
                 sh 'coverage run test/mainTest.py'
