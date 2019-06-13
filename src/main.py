@@ -9,6 +9,7 @@ import get_period_data
 import read_margin
 import get_margined_period_data
 import get_number_of_sessions
+import get_currency_pair_analysis
 
 A, B = get_codes.get_codes()
 
@@ -21,11 +22,11 @@ table_code = None
 period = None
 while operation is None:
     operation = read_operation.read_operation()
+while period is None:
+    period = read_period.read_period()
 if operation in ["1", "2"]:
     while currency_code is None:
         currency_code, table_code = read_currency.read_currency(A, B)
-    while period is None:
-        period = read_period.read_period()
     values = get_period_data.get_period_data(period, table_code, currency_code)
     if operation == "1":
         print("start: {0}, end: {1}, currency: {2}".format(period, datetime.today().date(), currency_code))
@@ -53,6 +54,9 @@ elif operation == "3":
         currency_code1, table_code1 = read_currency.read_currency(A, B)
     while currency_code2 is None:
         currency_code2, table_code2 = read_currency.read_currency(A, B)
-    starting_date = str(input("Input starting date in YYYY-MM-DD format"))
-    ending_date = str(input("Input ending date in YYYY-MM-DD format"))
-    print("This feature is not implemented yet!")
+    values1 = get_period_data.get_period_data(period, table_code1, currency_code1)
+    values2 = get_period_data.get_period_data(period, table_code2, currency_code2)
+    answer = get_currency_pair_analysis.get_currency_pair_analysis(values1, values2)
+    print("The changes are as follows:\n")
+    for i in answer:
+        print(str(i) + "\n")
