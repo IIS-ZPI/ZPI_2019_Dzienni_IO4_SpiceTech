@@ -57,11 +57,11 @@ class MainTest(unittest.TestCase):
 
     def test_get_number_of_sessions(self):
         inp = [0, 0.1, 0.2, 0.3, 0.1, 0.4, 0.7, 1, 0]
-        res = (2,2,0)
+        res = (6,2,0)
         self.assertEqual(get_number_of_sessions.get_number_of_sessions(inp), res)
 
         inp = [0,0,0,1,2,3,0,0,0]
-        res = (1,1,2)
+        res = (3,1,4)
         self.assertEqual(get_number_of_sessions.get_number_of_sessions(inp), res)
 
 if __name__ == '__main__':
