@@ -7,9 +7,9 @@ def read_margin():
         1 - 1 place after decimal point\n\
         2 - 2 places after decimal point\n\
         3 - 3 places after decimal point\n\
-        4 - 4 places after decimal point"))
+        4 - 4 places after decimal point\n"))
     if mrg not in ["1", "2", "3", "4"]:
         print("invalid input")
         return None
     else:
-        return mrg
+        return int(mrg)
