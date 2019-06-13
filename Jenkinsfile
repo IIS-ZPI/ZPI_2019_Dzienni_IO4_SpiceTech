@@ -4,11 +4,11 @@ pipeline {
         stage('test') {
             steps {
                 sh 'pip3 install -r requirements.txt'
-                sh 'python test/mainTest.py'
-		sh 'echo Checking coverage...'
-		sh 'pip3 install coverage'
-		sh 'coverage run test/mainTest.py'
-		sh 'coverage report -m'
+                sh 'python3 test/mainTest.py'
+                sh 'echo Checking coverage...'
+                sh 'pip3 install coverage'
+                sh 'coverage run --source src test/mainTest.py'
+                sh 'coverage report -m'
             }
         }
     }

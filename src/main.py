@@ -59,4 +59,4 @@ elif operation == "3":
     answer = get_currency_pair_analysis.get_currency_pair_analysis(values1, values2)
     print("The changes are as follows:\n")
     for i in answer:
-        print(str(i) + "\n")
+        print(str(i))
