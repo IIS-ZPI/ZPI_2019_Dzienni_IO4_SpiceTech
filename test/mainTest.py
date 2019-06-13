@@ -9,6 +9,7 @@ import get_period_data
 import get_codes
 import read_currency
 import read_operation
+import get_number_of_sessions
 
 class MainTest(unittest.TestCase):
 
@@ -53,6 +54,15 @@ class MainTest(unittest.TestCase):
         read_period.input = lambda _: 1
         rel = relativedelta(days=7)
         self.assertEqual(read_period.read_period(), datetime.datetime.now().date() - rel)
+
+    def test_get_number_of_sessions(self):
+        inp = [0, 0.1, 0.2, 0.3, 0.1, 0.4, 0.7, 1, 0]
+        res = (2,2,0)
+        self.assertEqual(get_number_of_sessions.get_number_of_sessions(inp), res)
+
+        inp = [0,0,0,1,2,3,0,0,0]
+        res = (1,1,2)
+        self.assertEqual(get_number_of_sessions.get_number_of_sessions(inp), res)
 
 if __name__ == '__main__':
     unittest.main()
