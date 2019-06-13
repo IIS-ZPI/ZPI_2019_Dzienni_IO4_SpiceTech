@@ -2,6 +2,7 @@ import unittest
 import sys
 from dateutil.relativedelta import relativedelta
 import datetime
+import numpy as np
 sys.path.append("./src/")
 
 import read_period
@@ -10,6 +11,7 @@ import get_codes
 import read_currency
 import read_operation
 import get_number_of_sessions
+import get_currency_pair_analysis
 
 class MainTest(unittest.TestCase):
 
@@ -63,6 +65,13 @@ class MainTest(unittest.TestCase):
         inp = [0,0,0,1,2,3,0,0,0]
         res = (3,1,4)
         self.assertEqual(get_number_of_sessions.get_number_of_sessions(inp), res)
+
+    def test_get_currency_pair_analysis(self):
+        inp1 = np.array([1,2])
+        inp2 = np.array([1,3])
+        res = np.array([0.6667])
+        self.assertEquals(get_currency_pair_analysis.get_currency_pair_analysis(inp1, inp2), res)
+
 
 if __name__ == '__main__':
     unittest.main()
